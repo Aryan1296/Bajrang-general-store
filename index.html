@@ -226,28 +226,34 @@
 <p><i class="fab fa-whatsapp"></i> WhatsApp: +91 98392 28021</p>
 </div>
 <form class="contact-form reveal"
+      id="contactForm"
       action="https://formspree.io/f/xnjbzzpa"
       method="POST">
 
   <input type="text"
+         id="name"
          name="name"
          placeholder="Your Name"
          required>
 
   <input type="tel"
+         id="phone"
          name="phone"
          placeholder="Phone Number"
          required
          pattern="[0-9]{10,12}">
 
-  <textarea name="message"
+  <textarea id="message"
+            name="message"
             rows="4"
-            placeholder="Your Message"
+            placeholder="Your message"
             required></textarea>
 
   <button type="submit" class="btn btn-gold">
     <i class="fas fa-paper-plane"></i> Send Message
   </button>
+
+  <p id="form-feedback" class="form-feedback"></p>
 
   <!-- Email Subject -->
   <input type="hidden"
@@ -301,7 +307,7 @@
 </a>
 
 <script>
-(function(){const e=document.getElementById("hamburger"),t=document.getElementById("nav-menu"),darkToggle=document.getElementById("darkToggle"),darkIcon=darkToggle.querySelector("i");if(localStorage.getItem("darkMode")==="enabled"){document.body.classList.add("dark-mode");darkIcon.classList.replace("fa-moon","fa-sun")}darkToggle.addEventListener("click",()=>{document.body.classList.toggle("dark-mode");if(document.body.classList.contains("dark-mode")){localStorage.setItem("darkMode","enabled");darkIcon.classList.replace("fa-moon","fa-sun")}else{localStorage.setItem("darkMode","disabled");darkIcon.classList.replace("fa-sun","fa-moon")}});e.addEventListener("click",()=>{e.classList.toggle("active"),t.classList.toggle("active")}),document.querySelectorAll(".nav-link").forEach(n=>{n.addEventListener("click",()=>{e.classList.remove("active"),t.classList.remove("active")})});const o=document.querySelectorAll("section"),c=document.querySelectorAll(".nav-link");function a(){let n="";o.forEach(l=>{const s=l.offsetTop-100,i=l.clientHeight;pageYOffset>=s&&pageYOffset<s+i&&(n=l.getAttribute("id"))}),c.forEach(l=>{l.classList.remove("active-link"),l.getAttribute("href")===`#${n}`&&l.classList.add("active-link")})}window.addEventListener("scroll",a),window.addEventListener("load",a);const r=document.querySelectorAll(".reveal"),d=new IntersectionObserver(n=>{n.forEach(l=>{l.isIntersecting&&l.target.classList.add("active")})},{threshold:.15,rootMargin:"0px 0px -50px 0px"});r.forEach(n=>d.observe(n));const m=document.getElementById("contactForm"),u=document.getElementById("form-feedback");m.addEventListener("submit",n=>{n.preventDefault();const l=document.getElementById("name").value.trim(),s=document.getElementById("phone").value.trim(),i=document.getElementById("message").value.trim();if(l===""||s===""||i===""){u.style.color="red",u.textContent="❌ All fields are required.";return}if(!/^[0-9]{10,12}$/.test(s)){u.style.color="red",u.textContent="❌ Enter a valid 10-12 digit phone number.";return}u.style.color="green",u.textContent="✅ Thank you! We'll contact you soon.",setTimeout(()=>{m.reset(),u.textContent=""},3e3)}),document.querySelectorAll('a[href^="#"]').forEach(n=>{n.addEventListener("click",function(l){const s=this.getAttribute("href");if(s==="#")return;const i=document.querySelector(s);i&&(l.preventDefault(),i.scrollIntoView({behavior:"smooth",block:"start"}))})})})();
+(function(){const e=document.getElementById("hamburger"),t=document.getElementById("nav-menu"),darkToggle=document.getElementById("darkToggle"),darkIcon=darkToggle.querySelector("i");if(localStorage.getItem("darkMode")==="enabled"){document.body.classList.add("dark-mode");darkIcon.classList.replace("fa-moon","fa-sun")}darkToggle.addEventListener("click",()=>{document.body.classList.toggle("dark-mode");if(document.body.classList.contains("dark-mode")){localStorage.setItem("darkMode","enabled");darkIcon.classList.replace("fa-moon","fa-sun")}else{localStorage.setItem("darkMode","disabled");darkIcon.classList.replace("fa-sun","fa-moon")}});e.addEventListener("click",()=>{e.classList.toggle("active"),t.classList.toggle("active")}),document.querySelectorAll(".nav-link").forEach(n=>{n.addEventListener("click",()=>{e.classList.remove("active"),t.classList.remove("active")})});const o=document.querySelectorAll("section"),c=document.querySelectorAll(".nav-link");function a(){let n="";o.forEach(l=>{const s=l.offsetTop-100,i=l.clientHeight;pageYOffset>=s&&pageYOffset<s+i&&(n=l.getAttribute("id"))}),c.forEach(l=>{l.classList.remove("active-link"),l.getAttribute("href")===`#${n}`&&l.classList.add("active-link")})}window.addEventListener("scroll",a),window.addEventListener("load",a);const r=document.querySelectorAll(".reveal"),d=new IntersectionObserver(n=>{n.forEach(l=>{l.isIntersecting&&l.target.classList.add("active")})},{threshold:.15,rootMargin:"0px 0px -50px 0px"});r.forEach(n=>d.observe(n));const m=document.getElementById("contactForm"),u=document.getElementById("form-feedback");m.addEventListener("submit",n=>{const l=document.getElementById("name").value.trim(),s=document.getElementById("phone").value.trim(),i=document.getElementById("message").value.trim();if(l===""||s===""||i===""){n.preventDefault(),u.style.color="red",u.textContent="All fields are required.";return}if(!/^[0-9]{10,12}$/.test(s)){n.preventDefault(),u.style.color="red",u.textContent="Enter a valid 10-12 digit phone number.";return}u.style.color="green",u.textContent="Sending your message..."}),document.querySelectorAll('a[href^="#"]').forEach(n=>{n.addEventListener("click",function(l){const s=this.getAttribute("href");if(s==="#")return;const i=document.querySelector(s);i&&(l.preventDefault(),i.scrollIntoView({behavior:"smooth",block:"start"}))})})})();
 </script>
 </body>
 </html>
